@@ -44,6 +44,8 @@ mkdir -p $SRC_DIR/eccodes/build && cd $SRC_DIR/eccodes/build
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_BUILD_TYPE=Release \
       -D CMAKE_FIND_FRAMEWORK=LAST \
+      -D CMAKE_LIBRARY_PATH=$PREFIX/lib \
+      -D CMAKE_INCLUDE_PATH=$PREFIX/include \
       -D INSTALL_LIB_DIR='lib' \
       -D ENABLE_JPG=$BUILD_JPEG \
       -D ENABLE_NETCDF=1 \

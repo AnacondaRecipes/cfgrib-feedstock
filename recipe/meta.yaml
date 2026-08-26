@@ -34,7 +34,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - make
+    - make  # [not win]
     - git  # [not win]
   host:
     - python
@@ -47,6 +47,7 @@ requirements:
     - cffi
     # eccodes C library host deps
     - jasper
+    - libjpeg-turbo
     - openjpeg
     - zlib
     - libpng
