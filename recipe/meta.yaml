@@ -33,7 +33,6 @@ requirements:
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ stdlib('c') }}
     - cmake
     - make  # [not win]
     - git  # [not win]
