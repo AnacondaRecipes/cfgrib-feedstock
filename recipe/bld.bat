@@ -48,7 +48,7 @@ REM ----------------------------------------------------------------------------
 echo === Installing findlibs ===
 cd %SRC_DIR%\findlibs
 set SETUPTOOLS_SCM_PRETEND_VERSION=0.1.3
-%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
+%PYTHON% -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 if errorlevel 1 exit 1
 
 REM -----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ cd %SRC_DIR%\python-eccodes
 set SETUPTOOLS_SCM_PRETEND_VERSION=2.48.0
 %PYTHON% builder.py
 if errorlevel 1 exit 1
-%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
+%PYTHON% -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 if errorlevel 1 exit 1
 
 REM -----------------------------------------------------------------------------
@@ -68,7 +68,7 @@ REM ----------------------------------------------------------------------------
 echo === Installing cfgrib ===
 cd %SRC_DIR%
 set SETUPTOOLS_SCM_PRETEND_VERSION=%CFGRIB_VERSION%
-%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
+%PYTHON% -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 if errorlevel 1 exit 1
 
 REM -----------------------------------------------------------------------------

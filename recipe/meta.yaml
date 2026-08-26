@@ -33,7 +33,7 @@ requirements:
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    # NOTE: Do NOT add {{ stdlib('c') }} - not supported in older conda-build
+    - {{ stdlib('c') }}
     - cmake
     - make  # [not win]
     - git  # [not win]
@@ -44,17 +44,17 @@ requirements:
     - wheel
     - setuptools
     - setuptools-scm >=8
-    - pytest-runner {{ pytest_runner }}
-    - numpy {{ numpy }}
-    - cffi {{ cffi }}
+    - pytest-runner
+    - numpy
+    - cffi
     # eccodes C library host deps
-    - jasper {{ jasper }}
-    - libjpeg-turbo {{ libjpeg_turbo }}
-    - zlib {{ zlib }}
-    - libpng {{ libpng }}
-    - libnetcdf {{ libnetcdf }}
-    - libaec {{ libaec }}
-    - hdf5 {{ hdf5 }}
+    - jasper
+    - libjpeg-turbo
+    - zlib
+    - libpng
+    - libnetcdf
+    - libaec
+    - hdf5
   run:
     - python
     - attrs >=19.2

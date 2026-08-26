@@ -87,7 +87,7 @@ export PYTHON="$PREFIX/bin/python"
 echo "=== Installing findlibs ==="
 cd $SRC_DIR/findlibs
 export SETUPTOOLS_SCM_PRETEND_VERSION="0.1.3"
-$PYTHON -m pip install . -vv --no-deps --no-build-isolation
+${PYTHON} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 
 # -----------------------------------------------------------------------------
 # 3. Install python-eccodes (needs eccodes C library and findlibs)
@@ -97,7 +97,7 @@ cd $SRC_DIR/python-eccodes
 echo "recursive-include gribapi *.so" >> MANIFEST.in
 export SETUPTOOLS_SCM_PRETEND_VERSION="2.48.0"
 $PYTHON builder.py
-$PYTHON -m pip install . -vv --no-deps --no-build-isolation
+${PYTHON} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 
 # -----------------------------------------------------------------------------
 # 4. Install cfgrib (needs python-eccodes)
@@ -105,7 +105,7 @@ $PYTHON -m pip install . -vv --no-deps --no-build-isolation
 echo "=== Installing cfgrib ==="
 cd $SRC_DIR
 export SETUPTOOLS_SCM_PRETEND_VERSION="${CFGRIB_VERSION}"
-$PYTHON -m pip install . -vv --no-deps --no-build-isolation
+${PYTHON} -m pip install . --no-deps --no-build-isolation --ignore-installed -vv
 
 # -----------------------------------------------------------------------------
 # 5. Embed SBOM in package
