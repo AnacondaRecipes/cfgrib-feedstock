@@ -20,7 +20,8 @@ requirements:
   host:
     - python
     - pip
-    - pytest-runner
+    - wheel
+    - pytest-runner ==6.0.1
     - setuptools
   run:
     - python
@@ -29,7 +30,6 @@ requirements:
     - packaging
     - python-eccodes >=0.9.8
     - numpy
-    - setuptools
     - xarray >=0.15
 
 test:
@@ -48,6 +48,10 @@ about:
   license_family: Apache
   license_file: LICENSE
   summary: Maps GRIB files to the NetCDF Common Data Model with CF Convention using ecCodes
+  description: |
+    cfgrib is a Python library that provides high-level access to GRIB files via the ECMWF ecCodes
+    library. It maps GRIB data to the NetCDF Common Data Model following CF Conventions and can
+    serve as an xarray backend engine for reading GRIB files directly into xarray datasets.
   dev_url: https://github.com/ecmwf/cfgrib
   doc_url: https://github.com/ecmwf/cfgrib
 
