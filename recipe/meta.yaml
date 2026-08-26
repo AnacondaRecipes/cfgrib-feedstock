@@ -33,10 +33,11 @@ requirements:
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - cmake
     - make  # [not win]
     - git  # [not win]
-    - m2-bash  # [win]
+    - msys2-bash  # [win]
   host:
     - python
     - pip
@@ -44,16 +45,16 @@ requirements:
     - setuptools
     - setuptools-scm >=8
     - pytest-runner
-    - numpy
+    - numpy {{ numpy }}
     - cffi
     # eccodes C library host deps
-    - jasper
+    - jasper {{ jasper }}
     - libjpeg-turbo
-    - zlib
-    - libpng
-    - libnetcdf
-    - libaec
-    - hdf5
+    - zlib {{ zlib }}
+    - libpng {{ libpng }}
+    - libnetcdf {{ libnetcdf }}
+    - libaec {{ libaec }}
+    - hdf5 {{ hdf5 }}
   run:
     - python
     - attrs >=19.2
