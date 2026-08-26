@@ -21,7 +21,7 @@ requirements:
     - python
     - pip
     - wheel
-    - pytest-runner ==6.0.1
+    - pytest-runner
     - setuptools
   run:
     - python
