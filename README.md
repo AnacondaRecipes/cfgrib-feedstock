@@ -1,33 +1,22 @@
-About <pkg_name>-feedstock
-=======================
+# cfgrib-feedstock
 
-Feedstock license: [BSD-3-Clause](LICENSE)
+- Home: [github.com/ecmwf/cfgrib](https://github.com/ecmwf/cfgrib)
+- License: [Apache-2.0](https://github.com/ecmwf/cfgrib/blob/master/LICENSE)
+- Feedstock license: [BSD-3-Clause](LICENSE)
 
-Home: <home_url>
+Maps GRIB files to the NetCDF Common Data Model following CF Conventions. Provides a GRIB engine for xarray with
+low-level access via ecCodes.
 
-Package license: <pkg_license>
+## Installing cfgrib
 
-Summary: <pkg_summary>
-
-
-Current release info
-====================
-
-| Name | Downloads | Version | Platforms |
-| --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-<pkg_name>-green.svg)](https://anaconda.org/anaconda/<pkg_name>) | [![Conda Downloads](https://img.shields.io/conda/dn/anaconda/<pkg_name>.svg)](https://anaconda.org/anaconda/<pkg_name>) | [![Conda Version](https://img.shields.io/conda/vn/anaconda/<pkg_name>.svg)](https://anaconda.org/anaconda/<pkg_name>) | [![Conda Platforms](https://img.shields.io/conda/pn/anaconda/<pkg_name>.svg)](https://anaconda.org/anaconda/<pkg_name>) |
-
-Installing <pkg_name>
-==================
-
-Installing `<pkg_name>` from the main channel can be achieved by:
+Installing `cfgrib` from the services channel can be achieved by:
 
 ```
-conda install <pkg_name>
+conda install services::cfgrib
 ```
 
-It is possible to list all of the versions of `<pkg_name>` available on your platform with `conda`:
+It is possible to list all of the versions of `cfgrib` available on your platform with `conda`:
 
 ```
-conda search <pkg_name>
+conda search services::cfgrib
 ```
