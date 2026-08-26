@@ -36,6 +36,7 @@ requirements:
     - cmake
     - make  # [not win]
     - git  # [not win]
+    - m2-bash  # [win]
   host:
     - python
     - pip
@@ -48,7 +49,6 @@ requirements:
     # eccodes C library host deps
     - jasper
     - libjpeg-turbo
-    - openjpeg
     - zlib
     - libpng
     - libnetcdf
