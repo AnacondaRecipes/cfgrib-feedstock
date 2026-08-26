@@ -78,7 +78,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 make -j $CPU_COUNT VERBOSE=1
 make install
 
-# Restore PYTHON for pip installs
+# Restore PYTHON for Python package installations
 export PYTHON="$PREFIX/bin/python"
 
 # -----------------------------------------------------------------------------
