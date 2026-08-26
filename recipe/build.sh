@@ -41,12 +41,22 @@ export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 
 mkdir -p $SRC_DIR/eccodes/build && cd $SRC_DIR/eccodes/build
 
+# Explicit library hints for jasper/jpeg (cmake Find modules don't always use full paths)
+if [[ $HOST =~ darwin ]]; then
+  JASPER_HINTS="-DJASPER_INCLUDE_DIR=$PREFIX/include -DJASPER_LIBRARY_RELEASE=$PREFIX/lib/libjasper.dylib"
+  JPEG_HINTS="-DJPEG_INCLUDE_DIR=$PREFIX/include -DJPEG_LIBRARY_RELEASE=$PREFIX/lib/libjpeg.dylib"
+else
+  JASPER_HINTS="-DJASPER_INCLUDE_DIR=$PREFIX/include -DJASPER_LIBRARY_RELEASE=$PREFIX/lib/libjasper.so"
+  JPEG_HINTS="-DJPEG_INCLUDE_DIR=$PREFIX/include -DJPEG_LIBRARY_RELEASE=$PREFIX/lib/libjpeg.so"
+fi
+
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_BUILD_TYPE=Release \
       -D CMAKE_FIND_FRAMEWORK=LAST \
       -D CMAKE_LIBRARY_PATH=$PREFIX/lib \
       -D CMAKE_INCLUDE_PATH=$PREFIX/include \
       -D INSTALL_LIB_DIR='lib' \
+      $JASPER_HINTS $JPEG_HINTS \
       -D ENABLE_JPG=$BUILD_JPEG \
       -D ENABLE_JPG_LIBJASPER=ON \
       -D ENABLE_JPG_LIBOPENJPEG=OFF \
