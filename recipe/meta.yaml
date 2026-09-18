@@ -1,45 +1,58 @@
-{% set name = "<PLEASE ADD PKG NAME>" %}
-{% set version = "<PLEASE ADD PKG VERSION>" %}
+{% set name = "cfgrib" %}
+{% set version = "0.9.15.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: <sha256>
+  sha256: d959d8b97e55a63646fa86686b297905ff7f2918a91e3a11d6292dab09598e4d
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<38]
+  skip: true  # [py<310]
 
 requirements:
   host:
     - python
     - pip
+    - setuptools
+    - wheel
   run:
     - python
+    - attrs
+    - click
+    - eccodes
+    - numpy
+    - packaging
+    - xarray
 
 test:
-  imports:
-    - {{ name.replace('-', '.') }}
   requires:
     - pip
+  imports:
+    - cfgrib
   commands:
     - pip check
 
 about:
-  home: <PLEASE ADD HOME URL>
-  summary: <PLEASE ADD SUMMARY>
+  home: https://github.com/ecmwf/cfgrib
+  license: Apache-2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: Maps GRIB files to the NetCDF Common Data Model with CF Convention using ecCodes
   description: |
-    <PLEASE ADD DESCRIPTION>
-  license: <PLEASE ADD LICENSE>
-  license_family: <PLEASE ADD LICENSE_FAMILY>
-  license_file: <PLEASE_ADD_LICENSE_FILE>
-  dev_url: <PLEASE ADD DEV URL>
-  doc_url: <PLEASE ADD DOC URL>
+    Python interface to map GRIB files to the Unidata's Common Data Model v4 following the CF Conventions. The high
+    level API is designed to support a GRIB engine for xarray and it is inspired by netCDF4-python and h5netcdf. Low
+    level access and decoding is performed via the ECMWF ecCodes library and the eccodes python package.
+  dev_url: https://github.com/ecmwf/cfgrib
+  doc_url: https://github.com/ecmwf/cfgrib/blob/master/README.rst
 
 extra:
+  anaconda-services:
+    ref:
+      - https://anaconda.zendesk.com/agent/tickets/109074
   recipe-maintainers:
-    - Jrice1317
+    - anaconda-services
